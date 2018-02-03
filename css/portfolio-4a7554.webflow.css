@@ -666,7 +666,7 @@
 
 .paragraph-2 {
   display: block;
-  width: 35vw;
+  width: 50vw;
   margin-top: 10px;
   margin-bottom: 20px;
   margin-left: 20px;
@@ -677,10 +677,9 @@
   font-family: Karla, sans-serif;
   color: #000;
   font-size: 14px;
-  line-height: 26px;
+  line-height: 25px;
   font-weight: 500;
   text-align: left;
-  letter-spacing: 0.1px;
   text-decoration: none;
 }
 
@@ -999,6 +998,7 @@
 }
 
 .about_h1 {
+  margin-bottom: 0px;
   margin-left: 20px;
   font-family: Sentinel, sans-serif;
   font-style: italic;
