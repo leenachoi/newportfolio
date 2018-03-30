@@ -2092,6 +2092,10 @@
   flex: 0 auto;
 }
 
+.image-38 {
+  box-shadow: 0 0 5px 0 #8a8a8a;
+}
+
 .image-38:hover {
   box-shadow: 14px 14px 0 2px #f2c57c;
   -webkit-transform: translate(-20px, -20px);
@@ -2190,6 +2194,10 @@
   align-items: flex-start;
 }
 
+.ms_home {
+  box-shadow: 0 0 5px 0 #8a8a8a;
+}
+
 .ms_home:hover {
   box-shadow: 14px 14px 0 2px #e6b294;
   -webkit-transform: translate(-20px, -20px);
@@ -2197,11 +2205,19 @@
   transform: translate(-20px, -20px);
 }
 
+.sr_home {
+  box-shadow: 0 0 5px 0 #8a8a8a;
+}
+
 .sr_home:hover {
   box-shadow: 14px 14px 0 2px #ddae7e;
   -webkit-transform: translate(-20px, -20px);
   -ms-transform: translate(-20px, -20px);
   transform: translate(-20px, -20px);
+}
+
+.sideproject_home {
+  box-shadow: 0 0 5px 0 #8a8a8a;
 }
 
 .sideproject_home:hover {
