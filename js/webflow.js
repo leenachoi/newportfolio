@@ -101,7 +101,9 @@ tram.config.keepInherited = true;
  * @return {object}
  */
 Webflow.define = function (name, factory, options) {
-  if (modules[name]) unbindModule(modules[name]);
+  if (modules[name]) {
+    unbindModule(modules[name]);
+  }
   var instance = modules[name] = factory($, _, options) || {};
   bindModule(instance);
   return instance;
@@ -137,7 +139,9 @@ function addReady(module) {
     return;
   }
   // Otherwise add ready method to the primary queue (only once)
-  if (_.contains(primary, module.ready)) return;
+  if (_.contains(primary, module.ready)) {
+    return;
+  }
   primary.push(module.ready);
 }
 
@@ -180,13 +184,27 @@ Webflow.push = function (ready) {
 Webflow.env = function (mode) {
   var designFlag = window.__wf_design;
   var inApp = typeof designFlag !== 'undefined';
-  if (!mode) return inApp;
-  if (mode === 'design') return inApp && designFlag;
-  if (mode === 'preview') return inApp && !designFlag;
-  if (mode === 'slug') return inApp && window.__wf_slug;
-  if (mode === 'editor') return window.WebflowEditor;
-  if (mode === 'test') return false || window.__wf_test;
-  if (mode === 'frame') return window !== window.top;
+  if (!mode) {
+    return inApp;
+  }
+  if (mode === 'design') {
+    return inApp && designFlag;
+  }
+  if (mode === 'preview') {
+    return inApp && !designFlag;
+  }
+  if (mode === 'slug') {
+    return inApp && window.__wf_slug;
+  }
+  if (mode === 'editor') {
+    return window.WebflowEditor;
+  }
+  if (mode === 'test') {
+    return false || window.__wf_test;
+  }
+  if (mode === 'frame') {
+    return window !== window.top;
+  }
 };
 
 // Feature detects + browser sniffs  ಠ_ಠ
@@ -236,15 +254,21 @@ function eventProxy(target, types) {
   });
 
   // Bind events to target
-  if (target && types) target.on(types, proxy.up);
+  if (target && types) {
+    target.on(types, proxy.up);
+  }
 
   /**
    * Add an event handler
    * @param  {function} handler
    */
   proxy.on = function (handler) {
-    if (typeof handler !== 'function') return;
-    if (_.contains(handlers, handler)) return;
+    if (typeof handler !== 'function') {
+      return;
+    }
+    if (_.contains(handlers, handler)) {
+      return;
+    }
     handlers.push(handler);
   };
 
@@ -350,7 +374,9 @@ Webflow.destroy = function (options) {
   secondary = [];
 
   // If load event has not yet fired, replace the deferred
-  if (deferLoad.state() === 'pending') bindLoad();
+  if (deferLoad.state() === 'pending') {
+    bindLoad();
+  }
 };
 
 // Listen for domready
@@ -1306,7 +1332,9 @@ Webflow.define('ix', module.exports = function ($, _) {
 
   api.ready = function () {
     // Redirect IX init while in design/preview modes
-    if (inApp) return env('design') ? api.design() : api.preview();
+    if (inApp) {
+      return env('design') ? api.design() : api.preview();
+    }
 
     // Ready should only be used after destroy, as a way to re-init
     if (config && destroyed) {
@@ -1322,7 +1350,9 @@ Webflow.define('ix', module.exports = function ($, _) {
   // Private methods
 
   function configure(list) {
-    if (!list) return;
+    if (!list) {
+      return;
+    }
 
     // Map all interactions by slug
     config = {};
@@ -1365,17 +1395,25 @@ Webflow.define('ix', module.exports = function ($, _) {
     }
 
     // Handle loads or readys if they exist
-    if (loads.length) Webflow.load(runLoads);
-    if (readys.length) setTimeout(runReadys, readyDelay);
+    if (loads.length) {
+      Webflow.load(runLoads);
+    }
+    if (readys.length) {
+      setTimeout(runReadys, readyDelay);
+    }
   }
 
   function build(i, el) {
     var $el = $(el);
     var id = $el.attr('data-ix');
     var ix = config[id];
-    if (!ix) return;
+    if (!ix) {
+      return;
+    }
     var triggers = ix.triggers;
-    if (!triggers) return;
+    if (!triggers) {
+      return;
+    }
 
     // Set styles immediately to provide tram with starting transform values
     api.style($el, ix.style);
@@ -1400,13 +1438,19 @@ Webflow.define('ix', module.exports = function ($, _) {
       if (type === 'click') {
         $el.on('click' + namespace, function (evt) {
           // Avoid late clicks on touch devices
-          if (!Webflow.validClick(evt.currentTarget)) return;
+          if (!Webflow.validClick(evt.currentTarget)) {
+            return;
+          }
 
           // Prevent default on empty hash urls
-          if ($el.attr('href') === '#') evt.preventDefault();
+          if ($el.attr('href') === '#') {
+            evt.preventDefault();
+          }
 
           run(trigger, $el, { group: state.clicked ? 'B' : 'A' });
-          if (stepsB) state.clicked = !state.clicked;
+          if (stepsB) {
+            state.clicked = !state.clicked;
+          }
         });
         $subs = $subs.add($el);
         return;
@@ -1441,13 +1485,19 @@ Webflow.define('ix', module.exports = function ($, _) {
   }
 
   function convert(offset) {
-    if (!offset) return 0;
+    if (!offset) {
+      return 0;
+    }
     offset = String(offset);
     var result = parseInt(offset, 10);
-    if (result !== result) return 0;
+    if (result !== result) {
+      return 0;
+    }
     if (offset.indexOf('%') > 0) {
       result /= 100;
-      if (result >= 1) result = 0.999;
+      if (result >= 1) {
+        result = 0.999;
+      }
     }
     return result;
   }
@@ -1472,11 +1522,19 @@ Webflow.define('ix', module.exports = function ($, _) {
       var height = $el.outerHeight();
       var offsetTop = anchor.offsetTop;
       var offsetBot = anchor.offsetBot;
-      if (offsetTop < 1 && offsetTop > 0) offsetTop *= viewHeight;
-      if (offsetBot < 1 && offsetBot > 0) offsetBot *= viewHeight;
+      if (offsetTop < 1 && offsetTop > 0) {
+        offsetTop *= viewHeight;
+      }
+      if (offsetBot < 1 && offsetBot > 0) {
+        offsetBot *= viewHeight;
+      }
       var active = top + height - offsetTop >= viewTop && top + offsetBot <= viewTop + viewHeight;
-      if (active === state.active) continue;
-      if (active === false && !stepsB) continue;
+      if (active === state.active) {
+        continue;
+      }
+      if (active === false && !stepsB) {
+        continue;
+      }
       state.active = active;
       run(trigger, $el, { group: active ? 'A' : 'B' });
     }
@@ -1502,14 +1560,20 @@ Webflow.define('ix', module.exports = function ($, _) {
     var preserve3d = trigger.preserve3d;
 
     // Do not run in designer unless forced
-    if (designer && !opts.force) return;
+    if (designer && !opts.force) {
+      return;
+    }
 
     // Operate on a set of grouped steps
     var group = opts.group || 'A';
     var loop = trigger['loop' + group];
     var steps = trigger['steps' + group];
-    if (!steps || !steps.length) return;
-    if (steps.length < 2) loop = false;
+    if (!steps || !steps.length) {
+      return;
+    }
+    if (steps.length < 2) {
+      loop = false;
+    }
 
     // One-time init before any loops
     if (!replay) {
@@ -1524,14 +1588,20 @@ Webflow.define('ix', module.exports = function ($, _) {
         } else {
           $el = $(selector);
         }
-        if (inApp) $el.attr('data-ix-affect', 1);
+        if (inApp) {
+          $el.attr('data-ix-affect', 1);
+        }
       }
 
       // Apply empty fix for certain Chrome versions
-      if (emptyFix) $el.addClass('w-ix-emptyfix');
+      if (emptyFix) {
+        $el.addClass('w-ix-emptyfix');
+      }
 
       // Set preserve3d for triggers with 3d transforms
-      if (preserve3d) $el.css('transform-style', 'preserve-3d');
+      if (preserve3d) {
+        $el.css('transform-style', 'preserve-3d');
+      }
     }
 
     var _tram = tram($el);
@@ -1544,11 +1614,17 @@ Webflow.define('ix', module.exports = function ($, _) {
 
     function fin() {
       // Run trigger again if looped
-      if (loop) return run(trigger, $el, opts, true);
+      if (loop) {
+        return run(trigger, $el, opts, true);
+      }
 
       // Reset any 'auto' values
-      if (meta.width === 'auto') _tram.set({ width: 'auto' });
-      if (meta.height === 'auto') _tram.set({ height: 'auto' });
+      if (meta.width === 'auto') {
+        _tram.set({ width: 'auto' });
+      }
+      if (meta.height === 'auto') {
+        _tram.set({ height: 'auto' });
+      }
 
       // Run callback
       done && done();
@@ -1563,7 +1639,9 @@ Webflow.define('ix', module.exports = function ($, _) {
     var startMethod = 'start';
 
     // Once the transition has started, we will always use then() to add to the queue.
-    if (meta.start) addMethod = startMethod = 'then';
+    if (meta.start) {
+      addMethod = startMethod = 'then';
+    }
 
     // Parse transitions string on the current step
     var transitions = step.transition;
@@ -1579,8 +1657,12 @@ Webflow.define('ix', module.exports = function ($, _) {
     var clean = tramify(step, meta) || {};
 
     // Store last width and height values
-    if (clean.width != null) meta.width = clean.width;
-    if (clean.height != null) meta.height = clean.height;
+    if (clean.width != null) {
+      meta.width = clean.width;
+    }
+    if (clean.height != null) {
+      meta.height = clean.height;
+    }
 
     // When transitions are not present, set values immediately and continue queue.
     if (transitions == null) {
@@ -1648,14 +1730,18 @@ Webflow.define('ix', module.exports = function ($, _) {
     var _tram = tram(el);
 
     // Exit early when data is empty to avoid clearing upstream
-    if ($.isEmptyObject(data)) return;
+    if ($.isEmptyObject(data)) {
+      return;
+    }
 
     // Get computed transition value
     el.css('transition', '');
     var computed = el.css('transition');
 
     // If computed is set to none, clear upstream
-    if (computed === transNone) computed = _tram.upstream = null;
+    if (computed === transNone) {
+      computed = _tram.upstream = null;
+    }
 
     // Set upstream transition to none temporarily
     _tram.upstream = transNone;
@@ -1678,8 +1764,12 @@ Webflow.define('ix', module.exports = function ($, _) {
     var result = {};
     var found = false;
     for (var key in obj) {
-      if (key === 'transition') continue;
-      if (key === 'keysort') continue;
+      if (key === 'transition') {
+        continue;
+      }
+      if (key === 'keysort') {
+        continue;
+      }
       if (omit3d) {
         if (key === 'z' || key === 'rotateX' || key === 'rotateY' || key === 'scaleZ') {
           continue;
@@ -1717,12 +1807,16 @@ var eventTriggers = {
     el.__wf_intro = null;
   },
   intro: function intro(i, el) {
-    if (el.__wf_intro) return;
+    if (el.__wf_intro) {
+      return;
+    }
     el.__wf_intro = true;
     $(el).triggerHandler(api.types.INTRO);
   },
   outro: function outro(i, el) {
-    if (!el.__wf_intro) return;
+    if (!el.__wf_intro) {
+      return;
+    }
     el.__wf_intro = null;
     $(el).triggerHandler(api.types.OUTRO);
   }
@@ -1750,7 +1844,9 @@ api.init = function () {
 api.async = function () {
   for (var key in eventTriggers) {
     var func = eventTriggers[key];
-    if (!eventTriggers.hasOwnProperty(key)) continue;
+    if (!eventTriggers.hasOwnProperty(key)) {
+      continue;
+    }
 
     // Replace trigger method with async wrapper
     api.triggers[key] = function (i, el) {
@@ -1822,7 +1918,9 @@ Webflow.define('links', module.exports = function ($, _) {
     tempLink.href = href;
 
     // Ignore any hrefs with a colon to safely avoid all uri schemes
-    if (href.indexOf(':') >= 0) return;
+    if (href.indexOf(':') >= 0) {
+      return;
+    }
 
     var $link = $(link);
 
@@ -1834,7 +1932,9 @@ Webflow.define('links', module.exports = function ($, _) {
     }
 
     // Ignore empty # links
-    if (href === '#') return;
+    if (href === '#' || href === '') {
+      return;
+    }
 
     // Determine whether the link should be selected
     var match = tempLink.href === location.href || href === slug || indexPage.test(href) && dirList.test(slug);
@@ -1853,7 +1953,9 @@ Webflow.define('links', module.exports = function ($, _) {
       var height = $section.outerHeight();
       var offset = viewHeight * 0.5;
       var active = $section.is(':visible') && top + height - offset >= viewTop && top + offset <= viewTop + viewHeight;
-      if (anchor.active === active) return;
+      if (anchor.active === active) {
+        return;
+      }
       anchor.active = active;
       setClass($link, linkCurrent, active);
     });
@@ -1861,8 +1963,12 @@ Webflow.define('links', module.exports = function ($, _) {
 
   function setClass($elem, className, add) {
     var exists = $elem.hasClass(className);
-    if (add && exists) return;
-    if (!add && !exists) return;
+    if (add && exists) {
+      return;
+    }
+    if (!add && !exists) {
+      return;
+    }
     add ? $elem.addClass(className) : $elem.removeClass(className);
   }
 
@@ -1911,7 +2017,9 @@ Webflow.define('scroll', module.exports = function ($) {
       }
 
       // Ignore links being used by jQuery mobile
-      if (window.$.mobile && $(e.currentTarget).hasClass('ui-link')) return;
+      if (window.$.mobile && $(e.currentTarget).hasClass('ui-link')) {
+        return;
+      }
 
       // Ignore empty # links
       if (this.getAttribute('href') === '#') {
@@ -1930,7 +2038,9 @@ Webflow.define('scroll', module.exports = function ($) {
   }
 
   function findEl(hash, e) {
-    if (!validHash.test(hash)) return;
+    if (!validHash.test(hash)) {
+      return;
+    }
 
     var el = $('#' + hash);
     if (!el.length) {
@@ -2047,7 +2157,9 @@ Webflow.define('touch', module.exports = function ($) {
   }
 
   api.init = function (el) {
-    if (fallback) return null;
+    if (fallback) {
+      return null;
+    }
     el = typeof el === 'string' ? $(el).get(0) : el;
     return el ? new Touch(el) : null;
   };
@@ -2093,7 +2205,9 @@ Webflow.define('touch', module.exports = function ($) {
     }
 
     function move(evt) {
-      if (!active) return;
+      if (!active) {
+        return;
+      }
 
       if (useTouch && evt.type === 'mousemove') {
         evt.preventDefault();
@@ -2121,7 +2235,9 @@ Webflow.define('touch', module.exports = function ($) {
     }
 
     function end(evt) {
-      if (!active) return;
+      if (!active) {
+        return;
+      }
       active = false;
 
       if (useTouch && evt.type === 'mouseup') {
@@ -2131,7 +2247,9 @@ Webflow.define('touch', module.exports = function ($) {
         return;
       }
 
-      if (!dirty) triggerEvent('tap', evt);
+      if (!dirty) {
+        triggerEvent('tap', evt);
+      }
     }
 
     function cancel() {
