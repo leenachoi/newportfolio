@@ -17,7 +17,7 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  border-bottom: 2px solid #f2c57c;
+  border-bottom: 2px solid #ecc686;
   text-align: center;
 }
 
@@ -140,7 +140,7 @@
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  border-left: 2px solid #f2c57c;
+  border-left: 2px solid #ecc686;
 }
 
 .link {
@@ -666,7 +666,6 @@
 
 .paragraph-2 {
   display: block;
-  width: 50vw;
   margin-top: 10px;
   margin-bottom: 20px;
   margin-left: 20px;
@@ -1165,7 +1164,6 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 100vh;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -1182,8 +1180,8 @@
 }
 
 .image-24 {
-  width: 25vw;
-  margin: 20px;
+  max-width: 70%;
+  margin: 20px 20px 30px;
 }
 
 .div-block-25 {
@@ -1191,6 +1189,8 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 40px;
+  margin-bottom: 40px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -1208,6 +1208,7 @@
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  text-align: left;
 }
 
 .div-block-26 {
@@ -1227,11 +1228,12 @@
 }
 
 .paragraph-3 {
-  width: 35vw;
+  display: block;
+  width: 42vw;
   color: #000;
   font-size: 14px;
   line-height: 28px;
-  text-align: center;
+  text-align: left;
   letter-spacing: 0.3px;
 }
 
