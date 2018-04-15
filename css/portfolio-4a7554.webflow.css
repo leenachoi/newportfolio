@@ -176,10 +176,10 @@
 .paragraph {
   font-family: Karla, sans-serif;
   color: #000;
-  font-size: 13px;
-  line-height: 23px;
+  font-size: 14px;
+  line-height: 25px;
   font-weight: 400;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.2px;
 }
 
 .heading-2 {
@@ -675,11 +675,11 @@
   flex: 0 auto;
   font-family: Karla, sans-serif;
   color: #000;
-  font-size: 13px;
-  line-height: 23px;
+  font-size: 14px;
+  line-height: 24px;
   font-weight: 500;
   text-align: left;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.2px;
   text-decoration: none;
 }
 
@@ -764,12 +764,14 @@
   color: #000;
   font-size: 14px;
   font-weight: 300;
+  letter-spacing: 0.5px;
   text-decoration: none;
 }
 
 .sidebarmenu.w--current {
   font-family: Karla, sans-serif;
   color: #000;
+  font-size: 14px;
   font-weight: 700;
 }
 
@@ -1090,9 +1092,9 @@
   margin-bottom: 20px;
   font-family: Karla, sans-serif;
   color: #000;
-  font-size: 13px;
+  font-size: 13.5px;
   line-height: 24px;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.2px;
 }
 
 .image-18 {
@@ -1316,12 +1318,14 @@
 }
 
 .link-15.w--current {
+  font-size: 15px;
   font-weight: 700;
 }
 
 .list-item-6 {
   margin-top: 10px;
   margin-bottom: 10px;
+  letter-spacing: 0.5px;
 }
 
 .div-block-28 {
@@ -1358,8 +1362,9 @@
 
 .paragraph-4 {
   color: #000;
-  font-size: 13px;
-  line-height: 23px;
+  font-size: 14px;
+  line-height: 25px;
+  letter-spacing: 0.2px;
 }
 
 .image-25 {
@@ -1373,7 +1378,7 @@
   border: 1px solid #000;
   background-color: transparent;
   color: #000;
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 1px;
 }
 
@@ -2700,9 +2705,9 @@
 }
 
 .paragraph-6 {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 23px;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.2px;
 }
 
 .link-26 {
@@ -2727,6 +2732,33 @@
 
 .div-block-60 {
   border-left: 2px solid #8a9283;
+}
+
+.paragraph-7 {
+  font-size: 13px;
+  line-height: 23px;
+}
+
+.paragraph-8 {
+  font-size: 13px;
+}
+
+.unordered-list-6 {
+  font-size: 14px;
+}
+
+.paragraph-9 {
+  font-size: 13px;
+}
+
+.paragraph-10 {
+  font-size: 13px;
+  line-height: 23px;
+}
+
+.paragraph-11 {
+  font-size: 13px;
+  line-height: 23px;
 }
 
 html.w-mod-js *[data-ix="displaynone"] {
