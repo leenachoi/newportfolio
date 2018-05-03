@@ -121,7 +121,6 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 20vw;
   padding-top: 40px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -902,7 +901,7 @@
 }
 
 .image-11 {
-  max-width: 90%;
+  max-width: 50%;
   margin-top: 10px;
   margin-right: 20px;
 }
@@ -927,7 +926,7 @@
 }
 
 .image-13 {
-  width: 40vw;
+  max-width: 80%;
   margin-bottom: 10px;
 }
 
@@ -1440,10 +1439,10 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -3072,7 +3071,7 @@
 }
 
 .image-62 {
-  max-width: 70%;
+  max-width: 60%;
 }
 
 html.w-mod-js *[data-ix="displaynone"] {
