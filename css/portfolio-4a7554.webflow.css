@@ -3106,6 +3106,17 @@
   justify-content: space-between;
 }
 
+.image-64 {
+  max-width: 40%;
+  margin-bottom: 5px;
+  margin-left: 20px;
+}
+
+.image-65 {
+  max-width: 40%;
+  margin-left: 18px;
+}
+
 html.w-mod-js *[data-ix="displaynone"] {
   opacity: 0;
 }
