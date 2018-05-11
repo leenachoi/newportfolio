@@ -124,6 +124,7 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  width: 20vw;
   padding-top: 100px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -3562,7 +3563,7 @@ html.w-mod-js *[data-ix="displaynone"] {
   }
   .sidebar {
     width: 25vw;
-    padding-left: 0px;
+    padding-left: 30px;
   }
   .div-block-4 {
     margin-bottom: 100px;
@@ -3714,7 +3715,7 @@ html.w-mod-js *[data-ix="displaynone"] {
     border-right-style: solid;
   }
   .sidebar {
-    margin-left: -59px;
+    margin-left: -85px;
     padding-left: 0px;
   }
   .div-block-4 {
