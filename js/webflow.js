@@ -840,11 +840,13 @@ var Webflow = __webpack_require__(0);
 
 Webflow.define('brand', module.exports = function ($) {
   var api = {};
+  var doc = document;
   var $html = $('html');
   var $body = $('body');
   var namespace = '.w-webflow-badge';
   var location = window.location;
   var isPhantom = /PhantomJS/i.test(navigator.userAgent);
+  var fullScreenEvents = 'fullscreenchange webkitfullscreenchange mozfullscreenchange msfullscreenchange';
   var brandElement;
 
   // -----------------------------------
@@ -860,8 +862,15 @@ Webflow.define('brand', module.exports = function ($) {
       brandElement = brandElement || createBadge();
       ensureBrand();
       setTimeout(ensureBrand, 500);
+
+      $(doc).off(fullScreenEvents, onFullScreenChange).on(fullScreenEvents, onFullScreenChange);
     }
   };
+
+  function onFullScreenChange() {
+    var fullScreen = doc.fullScreen || doc.mozFullScreen || doc.webkitIsFullScreen || doc.msFullscreenElement || Boolean(doc.webkitFullscreenElement);
+    $(brandElement).attr('style', fullScreen ? 'display: none !important;' : '');
+  }
 
   function createBadge() {
     var $brand = $('<a class="w-webflow-badge"></a>').attr('href', 'https://webflow.com?utm_campaign=brandjs');
