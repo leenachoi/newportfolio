@@ -3103,7 +3103,7 @@
 }
 
 .image-65 {
-  max-width: 40%;
+  max-width: 45%;
   margin-left: 18px;
 }
 
@@ -3452,6 +3452,14 @@
 
 .image-83 {
   margin-top: 10px;
+}
+
+.link-27 {
+  color: #151515;
+}
+
+.link-28 {
+  color: #151515;
 }
 
 html.w-mod-js *[data-ix="displaynone"] {
