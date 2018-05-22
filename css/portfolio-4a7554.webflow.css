@@ -709,7 +709,7 @@
   color: #151515;
   font-size: 13.5px;
   line-height: 24px;
-  font-weight: 500;
+  font-weight: 400;
   text-align: left;
   letter-spacing: 0.2px;
   text-decoration: none;
@@ -3360,7 +3360,7 @@
   margin-bottom: 10px;
 }
 
-.mum {
+.journalentry {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3440,6 +3440,18 @@
   max-width: 60%;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.image-81 {
+  max-width: 45%;
+}
+
+.image-82 {
+  max-width: 60%;
+}
+
+.image-83 {
+  margin-top: 10px;
 }
 
 html.w-mod-js *[data-ix="displaynone"] {
@@ -4048,4 +4060,10 @@ html.w-mod-js *[data-ix="displaynone"] {
   src: url('../fonts/gt-walsheim-regular-oblique-web.ttf') format('truetype');
   font-weight: 400;
   font-style: italic;
+}
+@font-face {
+  font-family: 'proxima nova';
+  src: url('../fonts/Mark-Simonson---Proxima-Nova-Alt-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
 }
