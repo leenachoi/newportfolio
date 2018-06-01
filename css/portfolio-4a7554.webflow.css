@@ -3509,6 +3509,10 @@
   margin-right: 20px;
 }
 
+.showhide_bb {
+  max-width: 50%;
+}
+
 html.w-mod-js *[data-ix="displaynone"] {
   opacity: 0;
 }
