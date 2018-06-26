@@ -179,6 +179,7 @@
 }
 
 .paragraph {
+  margin-right: 10px;
   font-family: Karla, sans-serif;
   color: #000;
   font-size: 13.5px;
@@ -977,7 +978,7 @@
 }
 
 .image-14 {
-  width: 25vw;
+  width: 80%;
   margin-right: 20px;
 }
 
@@ -3505,12 +3506,28 @@
 }
 
 .image-92 {
-  max-width: 50%;
+  max-width: 45%;
   margin-right: 20px;
 }
 
 .showhide_bb {
   max-width: 50%;
+}
+
+.div-block-75 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.paragraph-12 {
+  width: 50%;
+  padding-right: 10px;
+  font-size: 13.5px;
+  line-height: 25px;
+  letter-spacing: 0.2px;
 }
 
 html.w-mod-js *[data-ix="displaynone"] {
