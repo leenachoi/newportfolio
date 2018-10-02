@@ -2011,11 +2011,6 @@ Webflow.define('scroll', module.exports = function ($) {
   }
 
   function ready() {
-    // If hash is already present on page load, scroll to it right away
-    if (loc.hash) {
-      findEl(loc.hash.substring(1));
-    }
-
     // The current page url without the hash part.
     var locHref = loc.href.split('#')[0];
 
