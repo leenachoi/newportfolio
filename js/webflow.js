@@ -87,7 +87,7 @@ var $win = $(window);
 var $doc = $(document);
 var isFunction = $.isFunction;
 var _ = Webflow._ = __webpack_require__(4);
-var tram = __webpack_require__(1) && $.tram;
+var tram = Webflow.tram = __webpack_require__(1) && $.tram;
 var domready = false;
 var destroyed = false;
 tram.config.hideBackface = false;
