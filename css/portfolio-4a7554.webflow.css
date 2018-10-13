@@ -3511,6 +3511,7 @@
 }
 
 .showhide_bb {
+  position: absolute;
   max-width: 50%;
 }
 
@@ -3528,6 +3529,11 @@
   font-size: 13.5px;
   line-height: 25px;
   letter-spacing: 0.2px;
+}
+
+.image-93 {
+  position: absolute;
+  max-width: 50%;
 }
 
 html.w-mod-js *[data-ix="displaynone"] {
