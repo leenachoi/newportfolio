@@ -670,7 +670,7 @@
 
 .image-8 {
   max-width: 40%;
-  margin: 20px;
+  margin: auto 20px auto auto;
 }
 
 .container-2 {
@@ -3102,7 +3102,7 @@
 }
 
 .image-65 {
-  max-width: 45%;
+  max-width: 40%;
   margin-left: 18px;
 }
 
